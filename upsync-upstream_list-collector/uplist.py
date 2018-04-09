@@ -5,6 +5,19 @@ import diamond.collector
 import re
 from diamond.utils.signals import SIGALRMException
 
+"""
+Upstream name: upstream-test-10_62_64_19-80; Backend server count: 4
+        server 10.62.84.42:51513 weight=1 max_fails=5 fail_timeout=30s current_weight=-2 conns=0 max_conns=0 fails=0;
+        server 10.62.68.142:59155 weight=1 max_fails=5 fail_timeout=30s current_weight=-2 conns=0 max_conns=0 fails=0;
+        server 10.62.68.143:57753 weight=1 max_fails=5 fail_timeout=30s current_weight=2 conns=0 max_conns=0 fails=0;
+        server 10.62.68.143:62388 weight=1 max_fails=5 fail_timeout=30s current_weight=2 conns=0 max_conns=0 fails=0;
+
+Upstream name: upstream-test-10_62_64_19-81; Backend server count: 4
+        server 10.62.84.42:51514 weight=1 max_fails=5 fail_timeout=30s current_weight=0 conns=0 max_conns=0 fails=0;
+        server 10.62.68.143:57754 weight=1 max_fails=5 fail_timeout=30s current_weight=0 conns=0 max_conns=0 fails=0;
+        server 10.62.68.143:62389 weight=1 max_fails=5 fail_timeout=30s current_weight=0 conns=0 max_conns=0 fails=0;
+        server 10.62.68.142:59156 weight=1 max_fails=5 fail_timeout=30s current_weight=0 conns=0 max_conns=0 fails=0;
+"""
 
 class UpsyncUpstreamListCollector(diamond.collector.Collector):
     upstream_nameRE = re.compile('Upstream name: (?P<upstreamName>.*); '
